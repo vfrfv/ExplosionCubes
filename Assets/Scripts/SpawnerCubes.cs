@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnCubs : MonoBehaviour
+public class SpawnerCubes : MonoBehaviour
 {
     [SerializeField] private Cube _prefabCube;
     [SerializeField] private Cube[] _cubesStage;

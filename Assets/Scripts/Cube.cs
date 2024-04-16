@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Renderer))]
 public class Cube : MonoBehaviour
-{
-    public event Action<Transform, int> Clicked;
+{    
     private Renderer _renderer;
     private int _chance = 100;
+
+    public event Action<Transform, int> Clicked;
 
     private void Awake()
     {
