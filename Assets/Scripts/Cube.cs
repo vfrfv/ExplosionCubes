@@ -7,7 +7,7 @@ public class Cube : MonoBehaviour
     private Renderer _renderer;
     private int _chance = 100;
 
-    public event Action<Transform, int> Clicked;
+    public event Action<Cube, int> Clicked;
 
     private void Awake()
     {
@@ -16,7 +16,7 @@ public class Cube : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Clicked?.Invoke(transform, _chance);
+        Clicked?.Invoke(this, _chance);
         gameObject.SetActive(false);
     }
 

@@ -5,34 +5,13 @@ public class Explosion : MonoBehaviour
 {
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _explosionForce;
-
-    private void OnMouseDown()
+    
+    public void Explode(List<Cube> cubes, Vector3 position)
     {
-        Explode();
-    }
-
-    private void Explode()
-    {
-        foreach (Rigidbody explodableObject in GetExplodaleObjects())
+        foreach (Cube cube in cubes)
         {
-            explodableObject.AddExplosionForce(_explosionForce, transform.position, _explosionRadius);
+           Rigidbody rbCube =  cube.GetComponent<Rigidbody>();
+           rbCube.AddExplosionForce(_explosionForce, position, _explosionRadius);
         }
-    }
-
-    private List<Rigidbody> GetExplodaleObjects()
-    {
-        Collider[] hits = Physics.OverlapSphere(transform.position, _explosionRadius);
-
-        List<Rigidbody> cubes = new List<Rigidbody>();
-
-        foreach (var hit in hits)
-        {
-            if (hit.attachedRigidbody != null)
-            {
-                cubes.Add(hit.attachedRigidbody);
-            }
-        }
-
-        return cubes;
     }
 }
