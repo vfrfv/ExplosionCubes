@@ -3,7 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
 public class Cube : MonoBehaviour
-{    
+{
     private Renderer _renderer;
     private int _chance = 100;
 
